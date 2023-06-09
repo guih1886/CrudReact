@@ -10,7 +10,7 @@ Projeto de cadastros CRUD simples desenvolvido em React e CSS. O sistema utliza 
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![](https://github.com/guih1886/CrudReact/blob/main/src/assets/imgs/crudReact1.png#vitrinedev)
-![](https://github.com/guih1886/projeto-aluroni/blob/main/src/assets/crudReact2.jpg)
+![](https://github.com/guih1886/projeto-aluroni/blob/main/src/assets/imgs/crudReact2.jpg)
 
 
 ## Detalhes do projeto
