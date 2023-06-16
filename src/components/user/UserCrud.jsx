@@ -12,11 +12,13 @@ const headerProps = {
 const baseURL = 'http://localhost:3001/users'
 const initialState = {
     user: { name: '', email: '' },
-    list: []
+    list: [],
+    disableEmail: false
 }
 
 export default class UserCrud extends Component {
     state = { ...initialState }
+    id = 1
 
     componentWillMount() {
         axios(baseURL).then(resp => {
@@ -27,7 +29,41 @@ export default class UserCrud extends Component {
     clear() {
         this.setState({ user: initialState.user })
     }
-    save() {
+
+    save(e) {
+        e.preventDefault(); // Evita que o formulário seja enviado
+
+        let { name, email } = this.state.user;
+
+        // Verifica se o nome e o email foram preenchidos
+        if (!name || !email) {
+            alert("Por favor, preencha o nome e o email.");
+            return;
+        }
+
+        const userIndex = this.state.list.findIndex(
+            (user) => user.email === email
+        );
+
+        if (userIndex !== -1) {
+            // O usuário já existe na lista, então iremos atualizá-lo
+            const updatedList = [...this.state.list];
+            updatedList[userIndex] = { name, email };
+
+            // Atualiza o estado com o novo usuário e a lista atualizada
+            this.setState({ user: initialState.user, list: updatedList });
+            console.log("entrou no if");
+        } else {
+            // O usuário não existe na lista, então iremos adicioná-lo
+            const newUser = { name, email };
+            const newList = [...this.state.list, newUser];
+
+            // Atualiza o estado com o novo usuário e a lista atualizada
+            this.setState({ user: initialState.user, list: newList });
+
+            console.log('else');
+        }
+        this.setState({ disableEmail: false })
         const user = this.state.user
         const method = user.id ? 'put' : 'post'
         const url = user.id ? `${baseURL}/${user.id}` : baseURL
@@ -62,7 +98,7 @@ export default class UserCrud extends Component {
                     <div className="col-12 col-md-6">
                         <div className="form-group">
                             <label className="pb-2">E-mail</label>
-                            <input type="text" className="form-control" name="email" value={this.state.user.email} onChange={e => this.updateField(e)} placeholder="Digite o e-mail: " />
+                            <input disabled={this.state.disableEmail} type="text" className="form-control" name="email" value={this.state.user.email} onChange={e => this.updateField(e)} placeholder="Digite o e-mail: " />
                         </div>
                     </div>
                 </div>
@@ -82,10 +118,13 @@ export default class UserCrud extends Component {
     }
 
     load(user) {
-        this.setState({ user })
+        this.setState({ user, disableEmail: true })
     }
 
     remove(user) {
+        const newList = this.state.list.filter(usuario => usuario.email !== user.email)
+        // Atualiza o estado com o novo usuário e a lista atualizada
+        this.setState({ user: initialState.user, list: newList });
         axios.delete(`${baseURL}/${user.id}`).then(resp => {
             const list = this.getUpdatedList(user, false)
             this.setState({ list })
@@ -114,7 +153,6 @@ export default class UserCrud extends Component {
         return this.state.list.map(user => {
             return (
                 <tr key={user.id}>
-                    <td>{user.id}</td>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>
