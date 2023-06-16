@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CrudReact/static/css/main.407ffff6.css",
-    "main.js": "/CrudReact/static/js/main.2727605e.js",
+    "main.js": "/CrudReact/static/js/main.1559f59e.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/CrudReact/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/CrudReact/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/CrudReact/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
@@ -9,10 +9,10 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/CrudReact/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/CrudReact/index.html",
     "main.407ffff6.css.map": "/CrudReact/static/css/main.407ffff6.css.map",
-    "main.2727605e.js.map": "/CrudReact/static/js/main.2727605e.js.map"
+    "main.1559f59e.js.map": "/CrudReact/static/js/main.1559f59e.js.map"
   },
   "entrypoints": [
     "static/css/main.407ffff6.css",
-    "static/js/main.2727605e.js"
+    "static/js/main.1559f59e.js"
   ]
 }
