@@ -2,7 +2,7 @@
 
 Projeto de cadastros CRUD simples desenvolvido em React e CSS. O sistema utliza o localStorage do navegador como banco de dados provisório, porém no desenvolvimento foi utilizado JSON Server.
 
-| :placard: Vitrine.Dev |                                       |
+| :placard: Vitrine.Dev |    Guilherme Henrique    |
 | --------------------- | ------------------------------------- |
 | :sparkles: Nome       | **Projeto Crud React**                |
 | :label: Tecnologias   | React e CSS                           |
